@@ -14,26 +14,26 @@
 9. Добавить файл описания workflow для GitHub Actions `.github/workflows/deploy.yml`:
 
    ```yaml
-  on: push
-  jobs:
-    deploy:
-      runs-on: ubuntu-latest
-      steps:
-        - name: checkout
-          uses: action/checkout@v4
-          with:
-            submodules: 'true'
+   on: push
+   jobs:
+     deploy:
+       runs-on: ubuntu-latest
+       steps:
+         - name: checkout
+           uses: action/checkout@v4
+           with:
+             submodules: 'true'
 
-        - name: hugo installation
-          run:
-            sudo apt-get update
-            && sudo apt-get install -y hugo
-            && sudo hugo
+         - name: hugo installation
+           run:
+             sudo apt-get update
+             && sudo apt-get install -y hugo
+             && sudo hugo
         
-        - name: deploy
-          uses: JamesIves/github-pages-deploy-action@v4
-          with:
-            folder: public
+         - name: deploy
+           uses: JamesIves/github-pages-deploy-action@v4
+           with:
+             folder: public
    ```
 
    Документация: https://github.com/marketplace/actions/deploy-to-github-pages
